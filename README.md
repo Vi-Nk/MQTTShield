@@ -1,4 +1,8 @@
-# MQTTShield
+MQTTShield
+========
+![GitHub License](https://img.shields.io/github/license/Vi-Nk/MQTTShield)
+
+
 MQTTShield intends to be a toolkit for penetration-testing of MQTT Brokers.
 
 > [!Note]
