@@ -1,0 +1,15 @@
+mqttuser
+admin
+root
+username
+guest
+user
+test
+client
+testuser
+mqtt
+broker
+default
+anonymous
+gino
+cedalo

@@ -15,7 +15,7 @@ public class MqttConnManager {
         client = new MqttClient(url, clientid);
         ops = new MqttConnectOptions();
         ops.setCleanSession(true);
-        client.setCallback(new CallbackManager());
+        ops.setAutomaticReconnect(true);
         if ( username != null && password != null )
         {
             ops.setUserName(username);
@@ -54,6 +54,10 @@ public class MqttConnManager {
 
     public MqttClient getClient() {
         return client;
+    }
+
+    public MqttConnectOptions getOps() {
+        return ops;
     }
 
     }

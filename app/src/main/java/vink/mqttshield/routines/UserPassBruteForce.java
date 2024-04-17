@@ -11,9 +11,8 @@ import org.eclipse.paho.client.mqttv3.MqttClient;
 import org.eclipse.paho.client.mqttv3.MqttException;
 
 import vink.mqttshield.core.ConnOpts;
-import vink.mqttshield.core.GenericCallback;
 
-public class UserPassBruteForce implements GenericCallback{
+public class UserPassBruteForce {
 
     private List<String> usernames = null;
     private List<String> passwords = null;
@@ -56,10 +55,6 @@ public class UserPassBruteForce implements GenericCallback{
         }
         return false;
         
-    }
-    @Override
-    public void onCallback(String message) {
-        System.out.println(message);
     }
 
 }
