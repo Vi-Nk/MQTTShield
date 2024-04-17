@@ -7,6 +7,7 @@ import java.util.*;
 
 import org.eclipse.paho.client.mqttv3.MqttException;
 
+import vink.mqttshield.routines.SysInfoExtract;
 import vink.mqttshield.routines.UserPassBruteForce;
 
 public class RoutineRunner {
@@ -18,9 +19,13 @@ public class RoutineRunner {
     static String broker       = "tcp://localhost:1883";
     static String host = "localhost";
     static int port = 1883;
+    private static  boolean ifBrute = false;
+    private static boolean ifSysinfo = true;
     public static void main(String[] args) {
         try {
-          MqttConnManager manager = new MqttConnManager(host, port);
+          
+          if ( ifBrute ){  
+          MqttConnManager manager = new MqttConnManager(host, port);          
           UserPassBruteForce routine = new UserPassBruteForce();
           boolean success = routine.tryBruteForce(manager.getClient());
           if (success ){
@@ -28,8 +33,14 @@ public class RoutineRunner {
           }
             System.out.println("Brute force attempt complete ");
           
-          
-        } catch (MqttException e) {
+        }
+
+        if (ifSysinfo){
+          MqttConnManager manager = new MqttConnManager(host, port , "testuser" , "password");
+          SysInfoExtract routine = new SysInfoExtract();
+          routine.trySysInfoTopics(manager.getClient() ,manager.getOps() );
+        }
+        } catch (MqttException | InterruptedException e) {
           System.out.println("Something went wrong " + e.getMessage());
         }
         
