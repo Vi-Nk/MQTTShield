@@ -1,15 +1,18 @@
-# MQTTShield
+MQTTShield
+========
+![GitHub License](https://img.shields.io/github/license/Vi-Nk/MQTTShield)
+
+
 MQTTShield intends to be a toolkit for penetration-testing of MQTT Brokers.
 
 > [!Note]
 > This Repo is currently WIP .
 
 Content Planned : 
-- Dictionary attack
 - Brute force credentials
+- Broker Info scanner
 - DoS Attack
 - Known CVE based enumerations
-- Broker Info scanner
 
 and much more..
 
