@@ -7,8 +7,7 @@
  */
 
 plugins {
-    // Apply the application plugin to add support for building a CLI application in Java.
-    id 'application'
+    id 'java'
 }
 
 repositories {
@@ -33,12 +32,15 @@ dependencies {
     implementation 'com.google.guava:guava:32.0.0-jre'
 }
 
-application {
-    // Define the main class for the application.
-    mainClass = 'vink.mqttshield.core.RoutineRunner'
-}
-
 tasks.named('test') {
     // Use JUnit Platform for unit tests.
     useJUnitPlatform()
+}
+
+jar {
+    manifest {
+        attributes(
+                'Main-Class': 'vink.mqttshield.core.InputHandler'
+        )
+    }
 }
